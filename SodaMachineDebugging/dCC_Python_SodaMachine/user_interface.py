@@ -80,7 +80,7 @@ def soda_selection(inventory):
         user_selection = try_parse_int(input("Selection:"))
         validated_user_selection = validate_coin_choice(user_selection, soda_options)
     return validated_user_selection[1]
-
+##################################################################not relaying object name and price information in display #################
 
 def validate_coin_choice(selection, unique_cans):
     """Translates user menu selection into the name of can that was chosen. No errors."""

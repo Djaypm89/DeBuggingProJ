@@ -1,8 +1,4 @@
-
-from coins import Quarter
-from coins import Dime
-from coins import Nickel
-from coins import Penny
+from coins import * 
 
 class Wallet:
     def __init__(self):
@@ -20,3 +16,6 @@ class Wallet:
             self.money.append(Nickel())
         for index in range(50):
             self.money.append(Penny())
+
+
+#######I added .value to add just the value instead of the entire object 

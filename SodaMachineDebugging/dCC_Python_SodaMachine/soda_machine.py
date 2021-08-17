@@ -1,26 +1,18 @@
-from coins import Coin
-from coins import Quarter
-from coins import Dime
-from coins import Nickel
-from coins import Penny
-
-# from wallet import Wallet
-
-from cans import Cola
-from cans import OrangeSoda
-from cans import RootBeer
-
-import user_interface
+from coins import *
+from cans import *
+import user_interface 
+from customer import * 
 
 class SodaMachine:
     def __init__(self):
         self.register = []
         self.inventory = []
+        self.fill_inventory()
 
     def fill_register(self):
         """Method will fill SodaMachine's register with certain amounts of each coin when called."""
         for index in range(8):
-            self.register.append(Quarter())
+            self.register.appen(Quarter())
         for index in range(10):
             self.register.append(Dime())
         for index in range(20):
@@ -49,7 +41,7 @@ class SodaMachine:
 
         selected_soda = self.get_inventory_soda(selected_soda_name)
 
-        customer_payment = customer.gather_coins_from_wallet(selected_soda_name)
+        customer_payment = customer.gather_coins_from_wallet(selected_soda)
 
         self.calculate_transaction(customer_payment, selected_soda_name, customer)
 

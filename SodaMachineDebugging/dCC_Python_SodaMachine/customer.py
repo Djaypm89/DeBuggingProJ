@@ -15,14 +15,14 @@ class Customer:
         user_interface.output_text("Continue to add coins until you are ready to insert them into the machine")
         while will_proceed:
             user_interface.display_can_cost(selected_soda)
-            ##############################################selected soda is "none"
             user_interface.display_payment_value(customer_payment)
             coin_name = user_interface.coin_selection()
-            if coin_name == "done":
+            if coin_name == 'Done':
                 break
-            payment_coin = self.get_wallet_coin(coin_name)
-            if payment_coin is not None:
-                customer_payment.append(payment_coin)
+            elif coin_name == 1 or 2 or 3 or 4:
+                payment_coin = self.get_wallet_coin(coin_name)
+                if payment_coin is not None:
+                  customer_payment.append(payment_coin)
             else:
                 user_interface.output_text("You do not have any of those coins, try again")
         return customer_payment
@@ -34,6 +34,8 @@ class Customer:
                 self.wallet.money.remove(coin)
                 return coin
         return None
+        #may need to create an elif before the return here
+
 
     def add_coins_to_wallet(self, coins_list):
         """Method responsible for adding coins from a list into wallet's money list"""

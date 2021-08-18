@@ -1,7 +1,8 @@
 from coins import *
 from cans import *
 import user_interface 
-from customer import * 
+from customer import *
+
 
 class SodaMachine:
     def __init__(self):
@@ -12,7 +13,7 @@ class SodaMachine:
     def fill_register(self):
         """Method will fill SodaMachine's register with certain amounts of each coin when called."""
         for index in range(8):
-            self.register.appen(Quarter())
+            self.register.append(Quarter())
         for index in range(10):
             self.register.append(Dime())
         for index in range(20):
@@ -40,6 +41,7 @@ class SodaMachine:
         selected_soda_name = user_interface.soda_selection(self.inventory)
 
         selected_soda = self.get_inventory_soda(selected_soda_name)
+        ##could be an issue with selected soda equation or the gather coins form wallet function not lighting up 
 
         customer_payment = customer.gather_coins_from_wallet(selected_soda)
 

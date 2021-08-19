@@ -60,6 +60,7 @@ class SodaMachine:
             if customer_change is None:
                 user_interface.output_text(f'Dispensing ${total_payment_value} back to customer')
                 customer.add_coins_to_wallet(customer_payment)
+                #added .append above to attempt to remove the list issue in the check wallet method in customer.py
                 self.return_inventory(selected_soda)
             else:
                 self.deposit_coins_into_register(customer_payment)
@@ -76,6 +77,7 @@ class SodaMachine:
             self.return_inventory(selected_soda)
 
     def gather_change_from_register(self, change_value):
+        #I think the list that is at the end of our object list in check wallet for coins is coming from here. need to append the list to the array of objects in money rather than add the list itself
         self.change_list = []
         while change_value > 0:
             if change_value >= 0.25 and self.register_has_coin("Quarter"):
